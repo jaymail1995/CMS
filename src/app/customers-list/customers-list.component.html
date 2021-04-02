@@ -1,0 +1,42 @@
+<h3>Customers</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customersList">
+        <th scope="row"> {{ customer.id}} </th>
+        <td> {{ customer.name}} </td>
+        <td> {{ customer.email}} </td>
+        <td> {{ customer.phoneNumber}} </td>
+        <td> {{ customer.balance}} </td>
+        <td>
+          <a [routerLink]="['/customers/details', customer.id]" class="text-primary" style="text-decoration: none;">
+            <i class="bi bi-info-circle"></i> Details
+          </a> 
+          |
+          <a [routerLink]="['/customers/edit', customer.id]" class="text-primary" style="text-decoration: none;">
+            <i class="bi bi-pencil-square"></i> Edit
+          </a> 
+          |
+          <a [routerLink]="['/customers/delete', customer.id]" class="text-danger" style="text-decoration: none;">
+            <i class="bi bi-trash"></i> Remove
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-primary" [routerLink]="['/customers/create']">
+    <i class="bi bi-person-plus-fill"></i>
+    Add new
+  </button>
+  

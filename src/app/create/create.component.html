@@ -1,0 +1,36 @@
+<h3>Create</h3>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+    <div class="mb-3">
+      <label for="customerId" class="form-label">Id</label>
+      <input type="text" class="form-control" id="customerId" formControlName="id">
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3">
+      <label for="customerName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="customerName" formControlName="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.errors.required" class="form-text">
+          Please provide a valid name
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="customerPhoneNumber" class="form-label">Phone number</label>
+        <input type="text" class="form-control" id="customerPhoneNumber" formControlName="phoneNumber">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+      </div>
+    <div class="mb-3">
+        <label for="customerBalance" class="form-label">Balance</label>
+        <input type="text" class="form-control" id="customerBalance" formControlName="balance">
+    </div>
+    <button type="submit" 
+      class="btn btn-primary" 
+      [disabled]="customerForm.invalid">
+      Create new customer
+    </button>
+
+</form>

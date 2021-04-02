@@ -1,0 +1,61 @@
+<h3>Details</h3>
+
+<div class="card" style="width: 100%;">
+    <div class="card-body">
+
+        <table class="bottom-spacing">
+            <tr>
+                <td class="table-content">
+                    <span class="fw-bold">Id</span>
+                </td>
+                <td class="left-spacing">
+                    {{ customer.id }}
+                </td>
+            </tr>
+            <tr>
+                <td class="table-content">
+                    <span class="fw-bold">Name</span>
+                </td>
+                <td class="left-spacing">
+                    {{ customer.name }}
+                </td>
+            </tr>
+            <tr>
+                <td class="table-content">
+                    <span class="fw-bold">Email</span>
+                </td>
+                <td class="left-spacing">
+                    {{ customer.email }}
+                </td>
+            </tr>
+            <tr>
+                <td class="table-content">
+                    <span class="fw-bold">Phone Number</span>
+                </td>
+                <td class="left-spacing">
+                    {{ customer.phoneNumber }}
+                </td>
+            </tr>
+            <tr>
+                <td class="table-content">
+                    <span class="fw-bold">Balance</span>
+                </td>
+                <td class="left-spacing">
+                    {{ customer.balance }}
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <a [routerLink]="['/customers']" class="text-primary" style="text-decoration: none;">
+            <i class="bi bi-arrow-left-circle"></i>
+             Back to List
+        </a>
+
+        <a [routerLink]="['/customers/edit', '1']" class="text-primary" style="text-decoration: none; margin-left: 15px;">
+            <i class="bi bi-pencil-square"></i> 
+            Edit
+        </a>
+    </div>
+</div>
