@@ -3,17 +3,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerDataService } from '../lib/customers-data.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ICustomer } from '../lib/customer.interface';
 
 @Component({
   selector: 'cms-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
+
 export class CreateComponent implements OnInit {
 
   customerForm: FormGroup;
 
-  get id() { return this.customerForm.get('id'); }
   get name() { return this.customerForm.get('name'); }
   get phoneNumber() { return this.customerForm.get('phoneNumber'); }
   get email() { return this.customerForm.get('email'); }
@@ -24,7 +25,6 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerForm = new FormGroup({
-      id: new FormControl(''),
       name: new FormControl('', Validators.required),
       phoneNumber: new FormControl(''),
       email: new FormControl(''),
@@ -33,8 +33,7 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(customerInfo){
-    console.log(customerInfo);
-
+    
     this.dataService.add(customerInfo);
 
     Swal.fire({

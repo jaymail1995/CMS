@@ -1,6 +1,8 @@
-<h3>Create</h3>
+<h3>Edit</h3>
 
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+    
+    <input type="hidden" class="form-control" id="customerId" formControlName="id">
     <div class="mb-3">
       <label for="customerName" class="form-label">Name</label>
       <input type="text" class="form-control" id="customerName" formControlName="name">
@@ -25,7 +27,7 @@
     <button type="submit" 
       class="btn btn-primary" 
       [disabled]="customerForm.invalid">
-      Create new customer
+      Save Changes
     </button>
 
     <a [routerLink]="['/customers']" class="text-primary" style="text-decoration: none;margin-left: 15px;">

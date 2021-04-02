@@ -8,7 +8,7 @@ export class CustomerDataService {
 
   pkLastIndex: number = 3;
 
-  customersList = [
+  customersList= [
                 {
                     id: 1,
                     name: "Mark Otto",
@@ -43,13 +43,29 @@ export class CustomerDataService {
     }
 
     add(customer: ICustomer){
+      customer.id = ++this.pkLastIndex;
+      //customer.balance = parseFloat(customer.balance);
       this.customersList.push(customer);
     }
 
+    edit(customer: ICustomer){
+      
+      const editIndex = this.findItemIndex(customer);
+
+      this.customersList[editIndex].name = customer.name;
+      this.customersList[editIndex].email = customer.email;
+      this.customersList[editIndex].phoneNumber = customer.phoneNumber;
+      this.customersList[editIndex].balance = customer.balance;
+    }
+
     delete(customer:ICustomer): void{
-      const index = this.customersList.indexOf(customer);
-      if(index >= 0){
-        this.customersList.splice(index, 1);
+      const removeIndex = this.findItemIndex(customer);
+      if(removeIndex >= 0){
+        this.customersList.splice(removeIndex, 1);
       }
+    }
+
+    findItemIndex(customer: ICustomer){
+      return this.customersList.findIndex( x => x.id === customer.id);
     }
 }

@@ -10,6 +10,8 @@ import { CreateComponent } from './create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomerDataService } from './lib/customers-data.service';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { DetailsComponent } from './details/details.component';
     CustomersListComponent,
     MasterLayoutComponent,
     CreateComponent,
-    DetailsComponent
+    DetailsComponent,
+    EditComponent,
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
